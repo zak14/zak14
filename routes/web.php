@@ -21,5 +21,5 @@ Route::get('/', function () {
 Route::get('/albums', 'AlbumsController@index')->name('albums');
 Route::get('/albums/{id}/delete','AlbumsController@delete');
 Route::get('/albums/{id}/edit','AlbumsController@edit');
-Route::post('/albums/{id}/store','AlbumsController@store');
+Route::post('/albums/{id}/update','AlbumsController@update');
 

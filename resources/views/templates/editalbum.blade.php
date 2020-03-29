@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="text-center">Edit Album</h1>
 
-    <form action="/albums/{{$album->id}}/store" method="POST">
+    <form action="/albums/{{$album->id}}/update" method="POST">
         
         @csrf
         

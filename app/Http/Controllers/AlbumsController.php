@@ -24,7 +24,7 @@ class AlbumsController extends Controller
         return view('templates.editalbum',compact('album'));
     }
 
-    public function store($id){
+    public function update($id){
 
         
         $album = Album::find($id);
