@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Album;
+use App\User;
 
 class AlbumsController extends Controller
 {
@@ -52,7 +53,12 @@ class AlbumsController extends Controller
         $album->album_name = request('album_name');
         $album->description = request('description');
 
-        dd($album);
+        $album->user_id = User::inRandomOrder()->first()->id;
+
+        $album->save();
+
+        return redirect()->route('albums');
+
 
     }
 

@@ -24,10 +24,10 @@ Route::get('/addAlbum','AlbumsController@create');
 
 Route::post('/storeAlbum','AlbumsController@store');
 
-
-
 Route::get('/albums', 'AlbumsController@index')->name('albums');
 Route::get('/albums/{id}/delete','AlbumsController@delete');
 Route::get('/albums/{id}/edit','AlbumsController@edit');
 Route::post('/albums/{id}/update','AlbumsController@update');
+
+Route::resource('user','UserController');
 
