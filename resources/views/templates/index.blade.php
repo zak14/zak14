@@ -30,7 +30,7 @@
                       <a class="nav-link" href="/albums">Albums</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Photos</a>
+                        <a class="nav-link" href="{{route('photo.index')}}">Photos</a>
                     </li>
                     
                   </ul>

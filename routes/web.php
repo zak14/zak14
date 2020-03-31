@@ -30,4 +30,4 @@ Route::get('/albums/{id}/edit','AlbumsController@edit');
 Route::post('/albums/{id}/update','AlbumsController@update');
 
 Route::resource('user','UserController');
-
+Route::resource('photo','PhotoController');
