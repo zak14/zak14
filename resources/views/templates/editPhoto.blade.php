@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1 class="text-center">Editer la photo</h1>
-        <form action="{{route('photo.update',$photo->id)}}" method="post">
+        <form action="{{route('photo.update',$photo->id)}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="form-group">
@@ -12,7 +12,7 @@
             </div>
             <div class="form-group">
                 <label for="image">Image:</label>
-                <input type="text" name="image" id="image" class="form-control" value="{{$photo->img_path}}">
+                <input type="file" name="image" id="image" class="form-control" value="{{$photo->img_path}}">
             </div>
             <div class="form-group">
                 <label for="description">Description:</label>

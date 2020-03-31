@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Photo;
 use App\Album;
 
@@ -44,7 +45,7 @@ class PhotoController extends Controller
         $photo = new Photo();
 
         $photo->name = request('nom');
-        $photo->img_path = request('image');
+        $photo->img_path = request('image')->store('img');
         $photo->description = request('description');
         $photo->album_id = Album::inRandomOrder()->first()->id;
 
@@ -91,7 +92,7 @@ class PhotoController extends Controller
         $photo = Photo::find($id);
 
         $photo->name = request('nom');
-        $photo->img_path = request('image');
+        $photo->img_path = request('image')->store('img');
         $photo->description = request('description');
 
         $photo->save();
@@ -108,7 +109,10 @@ class PhotoController extends Controller
      */
     public function destroy($id)
     {
-        Photo::find($id)->delete();
+        $photo = Photo::find($id);
+
+        Storage::delete($photo->img_path);
+        $photo->delete();
 
         return redirect()->back();
     }

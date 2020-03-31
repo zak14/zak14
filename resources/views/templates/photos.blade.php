@@ -7,7 +7,12 @@
         @foreach ($photos as $photo)
             <li class="list-group-item d-flex justify-content-between">
                 {{$photo->name}}
-                <img src="{{$photo->img_path}}" class="w-50" alt="">
+                {{-- Si photo->img_path commence par https, j'affiche les lorem --}}
+                @if (substr($photo->img_path,0,5) === "https")
+                    <img src="{{$photo->img_path}}" alt="">
+                @else
+                    <img src="{{asset('storage/'.$photo->img_path)}}" class="w-50" alt="">
+                @endif
                 <p>{{$photo->description}}</p>
                 <div>
                     <a href="{{route('photo.edit',$photo->id)}}" class="btn btn-primary">Update</a>
