@@ -88,6 +88,7 @@
                     <a href="{{route('albums')}}">Albums</a>
                 </div>
             </div>
+           
         </div>
     </body>
 </html>

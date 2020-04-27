@@ -2,6 +2,9 @@
 
 @section('content')
     <h1 class="text-center">Albums</h1>
+    @auth
+        <p>Votre id est : {{Auth::user()->id}}</p>
+    @endauth
     <table class="table">
         <thead>
             <tr>
