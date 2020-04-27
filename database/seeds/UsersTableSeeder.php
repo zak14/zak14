@@ -16,5 +16,11 @@ class UsersTableSeeder extends Seeder
         User::truncate();
 
         $users=factory(User::class,10)->create();
+
+        DB::table('users')->insert([
+            'name' => 'Albi',
+            'email' => 'albi@coach.com',
+            'password' => bcrypt('58626682')
+        ]);
     }
 }

@@ -31,3 +31,7 @@ Route::post('/albums/{id}/update','AlbumsController@update');
 
 Route::resource('user','UserController');
 Route::resource('photo','PhotoController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
